@@ -1,4 +1,3 @@
-# dc-lunch-fund
 # DC Central Lunch Fund
 
 Mobile-first website to address the issue of school lunch debt within the District.
