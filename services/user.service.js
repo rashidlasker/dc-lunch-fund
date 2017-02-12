@@ -5,6 +5,9 @@ var bcrypt = require('bcryptjs');
 var Q = require('q');
 var mongo = require('mongoskin');
 var db = mongo.db(config.connectionString, { native_parser: true });
+
+var request = require('request'); //require superagent api for REST stuff
+
 db.bind('users');
 
 var service = {};
@@ -66,7 +69,7 @@ function create(userParam) {
                 // username already exists
                 deferred.reject('Username "' + userParam.username + '" is already taken');
             } else {
-                createUser();
+                createUser(); //creates a user and
             }
         });
 
@@ -81,9 +84,9 @@ function create(userParam) {
             user,
             function (err, doc) {
                 if (err) deferred.reject(err.name + ': ' + err.message);
-
                 deferred.resolve();
             });
+
     }
 
     return deferred.promise;

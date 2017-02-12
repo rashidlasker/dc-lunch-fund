@@ -9,9 +9,9 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
     // register using api to maintain clean separation between layers
-    request.post({
-        url: config.apiUrl + '/users/register',
-        form: req.body,
+    request.post({ //sends a post request using the 'request' api
+        url: config.apiUrl + '/users/register', //request url is mongodb
+        form: req.body, //
         json: true
     }, function (error, response, body) {
         if (error) {
