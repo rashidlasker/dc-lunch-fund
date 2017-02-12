@@ -1,5 +1,6 @@
 ﻿{
     "connectionString": "mongodb://localhost:27017/dc-lunch-fund",
     "apiUrl": "http://localhost:3000/api",
-    "secret": "secret"
+    "secret": "secret",
+    "nessieApiKey": "32429b87c3ed6b458875c45b87f2436f"
 }
