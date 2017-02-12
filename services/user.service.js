@@ -72,22 +72,18 @@ function create(userParam) {
 
     function createUser() {
         // set user object to userParam without the cleartext password
-        var userMongoDoc = _.omit(userParam, 'password');
-
-        var nessieDoc = _.omit(userParam, ['username', 'password']);
+        var user = _.omit(userParam, 'password');
 
         // add hashed password to user object
-        userMongoDoc.hash = bcrypt.hashSync(userParam.password, 10);
+        user.hash = bcrypt.hashSync(userParam.password, 10);
 
         db.users.insert(
-            userMongoDoc,
+            user,
             function (err, doc) {
                 if (err) deferred.reject(err.name + ': ' + err.message);
 
                 deferred.resolve();
             });
-
-        nessie.post(nessieDoc);
     }
 
     return deferred.promise;
